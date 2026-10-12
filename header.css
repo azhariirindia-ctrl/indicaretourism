@@ -1,0 +1,260 @@
+/* =====================================================================
+   indiCare — shared header for blog pages (home page jaisa)
+   File location: same folder as index.html / style.css  (NOT inside blog\)
+   Sabhi classes "ic-" prefix ke saath hain, taaki blog ke apne CSS se na takrayein.
+   ===================================================================== */
+
+.ic-topbar, .ic-nav, .ic-mobile-menu {
+  --ic-teal: #006D77;
+  --ic-saffron: #E07B2A;
+  --ic-ink: #0F1F24;
+  --ic-mid: #4A6670;
+  --ic-border: #D8EAED;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  line-height: normal;
+}
+.ic-topbar *, .ic-nav *, .ic-mobile-menu * { box-sizing: border-box; }
+
+/* ---------- TOP BAR ---------- */
+.ic-topbar {
+  background: var(--ic-ink);
+  color: rgba(255,255,255,0.85);
+  padding: 0.5rem 3rem;
+  font-size: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.ic-topbar a { color: rgba(255,255,255,0.75); text-decoration: none; transition: color 0.2s; }
+.ic-topbar a:hover { color: #fff; }
+.ic-topbar-right { display: flex; gap: 1.5rem; align-items: center; }
+.ic-topbar .ic-topbar-wa {
+  background: #25D366;
+  color: #fff;
+  padding: 0.25rem 0.8rem;
+  border-radius: 999px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* ---------- NAV ---------- */
+.ic-nav {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: #fff;
+  border-bottom: 1px solid var(--ic-border);
+  padding: 0 3rem;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+}
+.ic-nav-logo { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
+.ic-logo-mark {
+  width: 38px; height: 38px;
+  background: var(--ic-teal);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; color: #fff; font-weight: 800;
+}
+.ic-logo-text { font-size: 1.3rem; font-weight: 800; color: var(--ic-teal); letter-spacing: -0.02em; }
+.ic-logo-text span { color: var(--ic-saffron); }
+
+.ic-nav-links { display: flex; gap: 2rem; list-style: none; margin: 0; padding: 0; }
+.ic-nav-links a { font-size: 0.82rem; font-weight: 500; color: var(--ic-mid); text-decoration: none; transition: color 0.2s; }
+.ic-nav-links a:hover { color: var(--ic-teal); }
+
+.ic-nav-actions { display: flex; gap: 0.8rem; align-items: center; }
+.ic-btn-ghost {
+  border: 1.5px solid var(--ic-teal);
+  color: var(--ic-teal);
+  background: transparent;
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.ic-btn-ghost:hover { background: var(--ic-teal); color: #fff; }
+.ic-btn-saffron {
+  background: var(--ic-saffron);
+  color: #fff;
+  border: none;
+  padding: 0.55rem 1.4rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+  text-decoration: none;
+}
+.ic-btn-saffron:hover { background: #c96a1e; }
+
+/* ---------- HAMBURGER ---------- */
+.ic-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 8px 6px;
+  background: none;
+  border: none;
+  z-index: 1001;
+}
+.ic-hamburger span {
+  display: block;
+  width: 26px; height: 3px;
+  background: var(--ic-teal);
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+.ic-hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.ic-hamburger.open span:nth-child(2) { opacity: 0; }
+.ic-hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+/* ---------- MOBILE MENU (full screen) ---------- */
+.ic-mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(13,76,91,0.98);
+  z-index: 1000;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  overflow-y: auto;
+}
+.ic-mobile-menu.open { display: flex; }
+.ic-mobile-menu a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  width: 240px;
+  text-align: center;
+}
+.ic-mobile-menu a:last-child { border-bottom: none; }
+.ic-mobile-close {
+  position: absolute;
+  top: 20px; right: 22px;
+  background: none; border: none;
+  color: #fff;
+  font-size: 2.2rem;
+  cursor: pointer;
+  line-height: 1;
+}
+.ic-mobile-menu .ic-wa-link {
+  margin-top: 12px;
+  background: #25D366;
+  color: #fff;
+  border-radius: 8px;
+  padding: 14px 32px;
+  width: auto;
+  border: none;
+  font-size: 1rem;
+}
+.ic-mobile-menu .ic-consult-link {
+  background: var(--ic-saffron);
+  color: #fff;
+  border-radius: 8px;
+  padding: 14px 32px;
+  width: auto;
+  border: none;
+  font-size: 1rem;
+  margin-top: 6px;
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 768px) {
+  .ic-topbar { display: none; }
+  .ic-nav { padding: 0 1.2rem; }
+  .ic-nav-links { display: none; }
+  .ic-nav-actions { display: none; }
+  .ic-hamburger { display: flex; }
+}
+
+/* =====================================================================
+   BLOG PAGE EXTRAS (SEO / accessibility)
+   ===================================================================== */
+
+/* Sticky nav ke neeche anchor links (#section) na chhupein */
+html { scroll-padding-top: 84px; }
+
+/* Skip link (keyboard / screen-reader users ke liye) */
+.ic-skip {
+  position: absolute; left: -9999px; top: 0; z-index: 2000;
+  background: #006D77; color: #fff; padding: 10px 16px;
+  font: 600 0.85rem 'Plus Jakarta Sans', sans-serif; text-decoration: none;
+}
+.ic-skip:focus { left: 8px; top: 8px; border-radius: 6px; }
+
+/* Breadcrumb */
+.ic-breadcrumb {
+  background: #F7F4EF; border-bottom: 1px solid #D9D4CC;
+  padding: 10px 40px;
+  font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.78rem; line-height: 1.4;
+}
+.ic-breadcrumb { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 16px; }
+.ic-breadcrumb a.ic-back {
+  display: inline-flex; align-items: center; gap: 6px;
+  border: 1.5px solid #006D77; border-radius: 999px; padding: 4px 14px;
+  font-weight: 700; font-size: 0.78rem; color: #006D77; text-decoration: none; white-space: nowrap;
+  transition: background 0.2s, color 0.2s;
+}
+.ic-breadcrumb a.ic-back:hover { background: #006D77; color: #fff; text-decoration: none; }
+.ic-breadcrumb ol { list-style: none; display: flex; flex-wrap: wrap; gap: 0; margin: 0; padding: 0; }
+.ic-breadcrumb li { color: #6B6660; display: flex; align-items: center; min-width: 0; }
+.ic-breadcrumb li + li::before { content: "\203A"; margin: 0 8px; color: #B8860B; font-weight: 700; }
+.ic-breadcrumb a { color: #006D77; text-decoration: none; font-weight: 600; }
+.ic-breadcrumb a:hover { text-decoration: underline; }
+.ic-breadcrumb li[aria-current] { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* Related guides (internal linking) */
+.ic-related {
+  max-width: 860px; margin: 3rem auto 3.5rem; padding: 0 1.5rem;
+  font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
+}
+.ic-related h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.7rem; font-weight: 700; color: #082E38; margin: 0 0 1rem;
+}
+.ic-related ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.75rem; grid-template-columns: repeat(3, 1fr); }
+.ic-related a {
+  display: block; height: 100%;
+  background: #fff; border: 1px solid #D9D4CC; border-left: 4px solid #B8860B; border-radius: 8px;
+  padding: 1rem 1.1rem; color: #082E38; text-decoration: none;
+  font-size: 0.95rem; font-weight: 600; line-height: 1.4;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.ic-related a:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.08); transform: translateY(-2px); }
+.ic-related a span { display: block; margin-top: 0.4rem; font-size: 0.78rem; font-weight: 500; color: #006D77; }
+
+@media (max-width: 768px) {
+  .ic-breadcrumb { padding: 10px 20px; }
+  .ic-related ul { grid-template-columns: 1fr; }
+}
+
+/* ---------- Google Translate widget: banner/tooltip chhupao ---------- */
+#google_translate_element { display: none; }
+body > .skiptranslate { display: none !important; }
+.goog-te-banner-frame { display: none !important; }
+body { top: 0 !important; }
+.goog-tooltip, .goog-tooltip:hover { display: none !important; }
+.goog-text-highlight { background: none !important; box-shadow: none !important; }
+
+/* Mobile menu open state */
+.ic-mobile-menu { display: none; }
+.ic-mobile-menu.ic-mobile-menu--open { display: flex !important; }
