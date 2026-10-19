@@ -283,6 +283,21 @@ function loadGoogleTranslate(lang){
     if(tries>40) clearInterval(iv);
   },250);
 }
+function setBlogLang(lang,btn){
+  var bar=document.getElementById('blogTranslateBar');
+  if(bar){bar.querySelectorAll('.blog-translate-btn').forEach(function(b){b.classList.remove('active');});}
+  if(btn) btn.classList.add('active');
+  var showAr=(lang==='ar');
+  document.querySelectorAll('.blog-grid .blog-card').forEach(function(c){
+    var href=c.getAttribute('href')||'';
+    if(href.indexOf('blog/ar-blog')===0){ c.style.display=showAr?'':'none'; }
+    else if(href.indexOf('blog/')===0){ c.style.display=showAr?'none':''; }
+  });
+  var note=document.getElementById('blogLangNote');
+  if(note){ note.textContent = showAr ? 'مقالات باللغة العربية — Arabic guides for patients from Arab countries' : 'Select your language — blog posts will open in your language'; }
+  if(lang!=='en' && lang!=='ar'){ setLang(lang); }
+  else if(lang==='en' && document.documentElement.getAttribute('lang')!=='en'){ setLang('en'); }
+}
 function scrollToAppt(){
   var a=document.getElementById('appointment');
   if(a) a.scrollIntoView({behavior:'smooth'});
@@ -967,6 +982,655 @@ function testiMove(dir){
         <div class="blog-card-title">IVF Treatment in India: Cost, Success Rate & Guide for International Patients</div>
         <div class="blog-card-excerpt">From $2,000 per cycle. 50–65% success rate (under 35). Compare vs UAE, Kenya, Nigeria. 10-day minimum stay option. Free fertility review.</div>
         <div class="blog-card-footer"><span class="blog-card-date">September 2026</span><span class="blog-read-more">Read More →</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 26 -->
+    <a class="blog-card" href="blog/blog26-liver-transplant-nigeria.html">
+      <div class="blog-card-emoji">🧬</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">Nigeria</div>
+        <div class="blog-card-title">Liver Transplant in India for Nigerian Patients: Cost &amp; Complete Guide 2026</div>
+        <div class="blog-card-excerpt">Liver transplant is one of the most complex and expensive medical procedures in the world — but in India, it is accessible and affordable. Nigerian patients can…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">October 2026</span><span class="blog-read-more">Read More →</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 27 -->
+    <a class="blog-card" href="blog/blog27-medical-treatment-oman.html">
+      <div class="blog-card-emoji">🇴🇲</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">Oman</div>
+        <div class="blog-card-title">Medical Treatment in India from Oman: Complete Guide 2026</div>
+        <div class="blog-card-excerpt">Oman has good hospitals — but for complex procedures like cardiac surgery, cancer treatment, and organ transplants, many Omani patients are choosing India for its…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">October 2026</span><span class="blog-read-more">Read More →</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 28 -->
+    <a class="blog-card" href="blog/blog28-medical-treatment-kuwait.html">
+      <div class="blog-card-emoji">🇰🇼</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">Kuwait</div>
+        <div class="blog-card-title">Medical Treatment in India from Kuwait: What Kuwaiti Patients Need to Know in 2026</div>
+        <div class="blog-card-excerpt">Kuwait has excellent government hospitals — but waiting times for elective procedures can be long, and private hospital costs are high. Thousands of Kuwaiti…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">October 2026</span><span class="blog-read-more">Read More →</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 29 -->
+    <a class="blog-card" href="blog/blog29-cancer-treatment-nigeria.html">
+      <div class="blog-card-emoji">🎗️</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">Nigeria</div>
+        <div class="blog-card-title">Cancer Treatment in India for Nigerian Patients: Complete 2026 Guide</div>
+        <div class="blog-card-excerpt">India has emerged as the top destination for cancer treatment among Nigerian patients. World-class oncology centres, the latest technology, and costs 60–80% lower…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">October 2026</span><span class="blog-read-more">Read More →</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 30 -->
+    <a class="blog-card" href="blog/blog30-heart-surgery-bangladesh.html">
+      <div class="blog-card-emoji">❤️</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">Bangladesh</div>
+        <div class="blog-card-title">Heart Surgery in India for Bangladeshi Patients: Cost &amp; Complete Guide 2026</div>
+        <div class="blog-card-excerpt">Bangladesh has good cardiac facilities — but for complex heart surgery, many Bangladeshi patients choose India for its higher surgical volumes, advanced technology…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">October 2026</span><span class="blog-read-more">Read More →</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 31 -->
+    <a class="blog-card" href="blog/blog31-spine-surgery-kenya.html">
+      <div class="blog-card-emoji">🦴</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">Kenya</div>
+        <div class="blog-card-title">Spine Surgery in India for Kenyan Patients: Cost &amp; Complete Guide 2026</div>
+        <div class="blog-card-excerpt">Back pain and spine conditions are among the leading causes of disability in Kenya. When conservative treatment fails, spine surgery in India offers Kenyan patients…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">October 2026</span><span class="blog-read-more">Read More →</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 32 -->
+    <a class="blog-card" href="blog/blog32-organ-transplant-uzbekistan.html">
+      <div class="blog-card-emoji">🫘</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">Uzbekistan</div>
+        <div class="blog-card-title">Organ Transplant in India from Uzbekistan: Kidney &amp; Liver Guide 2026</div>
+        <div class="blog-card-excerpt">For Uzbek patients needing kidney or liver transplants, India offers world-class surgery at a fraction of the cost of Germany, Turkey, or South Korea — with…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">October 2026</span><span class="blog-read-more">Read More →</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 33 -->
+    <a class="blog-card" href="blog/blog33-ivf-treatment-kenya.html">
+      <div class="blog-card-emoji">👶</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">Kenya</div>
+        <div class="blog-card-title">IVF Treatment in India for Kenyan Patients: Cost, Success Rate &amp; Guide 2026</div>
+        <div class="blog-card-excerpt">Kenya has growing fertility clinics — but success rates vary and costs remain high. India offers Kenyan couples IVF treatment at accredited clinics with 50–65%…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">October 2026</span><span class="blog-read-more">Read More →</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 34 -->
+    <a class="blog-card" href="blog/blog34-neurosurgery-international.html">
+      <div class="blog-card-emoji">🧠</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">Neurosurgery</div>
+        <div class="blog-card-title">Neurosurgery in India: Cost, Hospitals &amp; Guide for International Patients 2026</div>
+        <div class="blog-card-excerpt">India has emerged as one of the world&#x27;s leading destinations for neurosurgery — from brain tumour removal and epilepsy surgery to deep brain stimulation and spine…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">October 2026</span><span class="blog-read-more">Read More →</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 35 -->
+    <a class="blog-card" href="blog/blog35-medical-tourism-ghana.html">
+      <div class="blog-card-emoji">🇬🇭</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">Ghana</div>
+        <div class="blog-card-title">Medical Treatment in India from Ghana: What Ghanaian Patients Need to Know 2026</div>
+        <div class="blog-card-excerpt">Ghana sends a growing number of medical tourists to India every year. From Accra, patients travel to India for cancer treatment, cardiac surgery, kidney and liver…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">October 2026</span><span class="blog-read-more">Read More →</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 36 -->
+    <a class="blog-card" href="blog/blog36-hip-replacement-international.html">
+      <div class="blog-card-emoji">🦿</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">Hip Replacement</div>
+        <div class="blog-card-title">Hip Replacement Surgery in India: Cost &amp; Guide for International Patients 2026</div>
+        <div class="blog-card-excerpt">Hip replacement surgery in India costs $5,000–$8,000 at JCI-accredited hospitals — compared to $30,000–$50,000 in the USA, £14,000–£20,000 in the UK, and AED…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">October 2026</span><span class="blog-read-more">Read More →</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 37 -->
+    <a class="blog-card" href="blog/blog37-medical-treatment-tanzania.html">
+      <div class="blog-card-emoji">🇹🇿</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">Tanzania</div>
+        <div class="blog-card-title">Medical Treatment in India from Tanzania: What You Need to Know 2026</div>
+        <div class="blog-card-excerpt">Tanzania sends a growing number of medical tourists to India every year. From Dar es Salaam and Arusha, Tanzanian patients access cancer treatment, cardiac surgery…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">October 2026</span><span class="blog-read-more">Read More →</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 38 -->
+    <a class="blog-card" href="blog/blog38-diabetes-treatment-india.html">
+      <div class="blog-card-emoji">🩺</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">Diabetes</div>
+        <div class="blog-card-title">Advanced Diabetes Treatment in India for International Patients: Complete Guide 2026</div>
+        <div class="blog-card-excerpt">Diabetes is one of the fastest-growing health crises across Africa, the Middle East, and Central Asia. India now offers advanced diabetes management and treatment…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">October 2026</span><span class="blog-read-more">Read More →</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 39 -->
+    <a class="blog-card" href="blog/blog39-bone-marrow-transplant-international.html">
+      <div class="blog-card-emoji">🩸</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">Bone Marrow Transplant</div>
+        <div class="blog-card-title">Bone Marrow Transplant in India: Cost &amp; Guide for International Patients 2026</div>
+        <div class="blog-card-excerpt">Bone marrow transplant (BMT) is one of the most complex and expensive medical procedures in the world. In India, it is available at JCI-accredited hospitals for…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">October 2026</span><span class="blog-read-more">Read More →</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 40 -->
+    <a class="blog-card" href="blog/blog40-medical-treatment-ethiopia.html">
+      <div class="blog-card-emoji">🇪🇹</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">Ethiopia</div>
+        <div class="blog-card-title">Medical Treatment in India from Ethiopia: What You Need to Know 2026</div>
+        <div class="blog-card-excerpt">Ethiopia is one of East Africa&#x27;s fastest-growing medical tourism sources to India. From Addis Ababa, patients access cancer treatment, cardiac surgery, kidney…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">October 2026</span><span class="blog-read-more">Read More →</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 41 -->
+    <a class="blog-card" href="blog/blog41-medical-treatment-saudi-arabia.html">
+      <div class="blog-card-emoji">🇸🇦</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">Saudi Arabia</div>
+        <div class="blog-card-title">Medical Treatment in India from Saudi Arabia: Complete Guide 2026</div>
+        <div class="blog-card-excerpt">Saudi patients guide to medical treatment in India. Cardiac, cancer, transplants — 70% cheaper. Arabic support. Riyadh to Delhi. Free opinion from indiCare.</div>
+        <div class="blog-card-footer"><span class="blog-card-date">October 2026</span><span class="blog-read-more">Read More →</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 42 -->
+    <a class="blog-card" href="blog/blog42-medical-treatment-qatar.html">
+      <div class="blog-card-emoji">🇶🇦</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">Qatar</div>
+        <div class="blog-card-title">Medical Treatment in India from Qatar: Complete Guide 2026</div>
+        <div class="blog-card-excerpt">Qatar patients guide to affordable medical treatment in India. Heart surgery, cancer, transplants — 65% cheaper than Doha. Free consultation from indiCare.</div>
+        <div class="blog-card-footer"><span class="blog-card-date">October 2026</span><span class="blog-read-more">Read More →</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 43 -->
+    <a class="blog-card" href="blog/blog43-medical-treatment-egypt.html">
+      <div class="blog-card-emoji">🇪🇬</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">Egypt</div>
+        <div class="blog-card-title">Medical Treatment in India from Egypt: Complete Guide 2026</div>
+        <div class="blog-card-excerpt">Egyptian patients guide to medical treatment in India. Cancer, cardiac, orthopaedics — 60% cheaper. Cairo to Delhi. Arabic support. Free consultation indiCare.</div>
+        <div class="blog-card-footer"><span class="blog-card-date">October 2026</span><span class="blog-read-more">Read More →</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 44 -->
+    <a class="blog-card" href="blog/blog44-medical-treatment-south-africa.html">
+      <div class="blog-card-emoji">🇿🇦</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">South Africa</div>
+        <div class="blog-card-title">Medical Treatment in India from South Africa: Complete Guide 2026</div>
+        <div class="blog-card-excerpt">South African patients guide to medical treatment in India. Cancer, cardiac, transplants — 50% cheaper than Johannesburg. Free consultation from indiCare.</div>
+        <div class="blog-card-footer"><span class="blog-card-date">October 2026</span><span class="blog-read-more">Read More →</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 45 -->
+    <a class="blog-card" href="blog/blog45-medical-treatment-uganda.html">
+      <div class="blog-card-emoji">🇺🇬</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">Uganda</div>
+        <div class="blog-card-title">Medical Treatment in India from Uganda: Complete Guide 2026</div>
+        <div class="blog-card-excerpt">Ugandan patients guide to medical treatment in India. Cancer, cardiac, transplants — 65% cheaper than Kampala. Kampala to Delhi. Free consultation from indiCare.</div>
+        <div class="blog-card-footer"><span class="blog-card-date">October 2026</span><span class="blog-read-more">Read More →</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 46 -->
+    <a class="blog-card" href="blog/blog46-medical-treatment-zambia.html">
+      <div class="blog-card-emoji">🇿🇲</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">Zambia</div>
+        <div class="blog-card-title">Medical Treatment in India from Zambia: Complete Guide 2026</div>
+        <div class="blog-card-excerpt">Zambian patients guide to medical treatment in India. Cancer, cardiac, transplants — 65% cheaper than Lusaka. Lusaka to Delhi. Free consultation from indiCare.</div>
+        <div class="blog-card-footer"><span class="blog-card-date">October 2026</span><span class="blog-read-more">Read More →</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 47 -->
+    <a class="blog-card" href="blog/blog47-medical-treatment-zimbabwe.html">
+      <div class="blog-card-emoji">🇿🇼</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">Zimbabwe</div>
+        <div class="blog-card-title">Medical Treatment in India from Zimbabwe: Complete Guide 2026</div>
+        <div class="blog-card-excerpt">Zimbabwean patients guide to medical treatment in India. Cancer, cardiac, transplants — 60% cheaper. Harare to Delhi. Free consultation from indiCare.</div>
+        <div class="blog-card-footer"><span class="blog-card-date">October 2026</span><span class="blog-read-more">Read More →</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 48 -->
+    <a class="blog-card" href="blog/blog48-medical-treatment-sudan.html">
+      <div class="blog-card-emoji">🇸🇩</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">Sudan</div>
+        <div class="blog-card-title">Medical Treatment in India from Sudan: Complete Guide 2026</div>
+        <div class="blog-card-excerpt">Sudanese patients guide to medical treatment in India. Cardiac, cancer, transplants — 65% cheaper. Khartoum to Delhi. Arabic support. Free opinion from indiCare.</div>
+        <div class="blog-card-footer"><span class="blog-card-date">October 2026</span><span class="blog-read-more">Read More →</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 49 -->
+    <a class="blog-card" href="blog/blog49-medical-treatment-cameroon.html">
+      <div class="blog-card-emoji">🇨🇲</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">Cameroon</div>
+        <div class="blog-card-title">Medical Treatment in India from Cameroon: Complete Guide 2026</div>
+        <div class="blog-card-excerpt">Cameroonian patients guide to medical treatment in India. Cancer, cardiac, transplants — 65% cheaper than Europe. Douala to Delhi. French &amp; English support.</div>
+        <div class="blog-card-footer"><span class="blog-card-date">October 2026</span><span class="blog-read-more">Read More →</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 50 -->
+    <a class="blog-card" href="blog/blog50-medical-treatment-senegal.html">
+      <div class="blog-card-emoji">🇸🇳</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">Senegal</div>
+        <div class="blog-card-title">Medical Treatment in India from Senegal: Complete Guide 2026</div>
+        <div class="blog-card-excerpt">Senegalese patients guide to medical treatment in India. Cancer, cardiac, transplants — 65% cheaper than France. Dakar to Delhi. French support. Free consultation.</div>
+        <div class="blog-card-footer"><span class="blog-card-date">October 2026</span><span class="blog-read-more">Read More →</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 51 -->
+    <a class="blog-card" href="blog/blog51-medical-treatment-bahrain.html">
+      <div class="blog-card-emoji">🇧🇭</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">Bahrain</div>
+        <div class="blog-card-title">Medical Treatment in India from Bahrain: Complete Guide 2026</div>
+        <div class="blog-card-excerpt">Bahraini patients guide to affordable medical treatment in India. Heart surgery, cancer, transplants — 65% cheaper. Manama to Delhi. Arabic support. Free opinion.</div>
+        <div class="blog-card-footer"><span class="blog-card-date">October 2026</span><span class="blog-read-more">Read More →</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 52 -->
+    <a class="blog-card" href="blog/blog52-medical-treatment-jordan.html">
+      <div class="blog-card-emoji">🇯🇴</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">Jordan</div>
+        <div class="blog-card-title">Medical Treatment in India from Jordan: Complete Guide 2026</div>
+        <div class="blog-card-excerpt">Jordanian patients guide to medical treatment in India. Cancer, cardiac, transplants — 60% cheaper than Amman. Arabic support. Free consultation from indiCare.</div>
+        <div class="blog-card-footer"><span class="blog-card-date">October 2026</span><span class="blog-read-more">Read More →</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 53 -->
+    <a class="blog-card" href="blog/blog53-medical-treatment-morocco.html">
+      <div class="blog-card-emoji">🇲🇦</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">Morocco</div>
+        <div class="blog-card-title">Medical Treatment in India from Morocco: Complete Guide 2026</div>
+        <div class="blog-card-excerpt">Moroccan patients guide to medical treatment in India. Cancer, cardiac, transplants — 65% cheaper than Europe. Casablanca to Delhi. Arabic &amp; French support.</div>
+        <div class="blog-card-footer"><span class="blog-card-date">October 2026</span><span class="blog-read-more">Read More →</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 54 -->
+    <a class="blog-card" href="blog/blog54-medical-treatment-angola.html">
+      <div class="blog-card-emoji">🇦🇴</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">Angola</div>
+        <div class="blog-card-title">Medical Treatment in India from Angola: Complete Guide 2026</div>
+        <div class="blog-card-excerpt">Angolan patients guide to medical treatment in India. Cancer, cardiac, transplants — 65% cheaper. Luanda to Delhi. Portuguese &amp; English support. Free consultation.</div>
+        <div class="blog-card-footer"><span class="blog-card-date">October 2026</span><span class="blog-read-more">Read More →</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 55 -->
+    <a class="blog-card" href="blog/blog55-medical-treatment-mozambique.html">
+      <div class="blog-card-emoji">🇲🇿</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">Mozambique</div>
+        <div class="blog-card-title">Medical Treatment in India from Mozambique: Complete Guide 2026</div>
+        <div class="blog-card-excerpt">Mozambican patients guide to medical treatment in India. Cancer, cardiac, transplants — 65% cheaper. Maputo to Delhi. Portuguese &amp; English support. Free…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">October 2026</span><span class="blog-read-more">Read More →</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 56 -->
+    <a class="blog-card" href="blog/blog56-medical-treatment-rwanda.html">
+      <div class="blog-card-emoji">🇷🇼</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">Rwanda</div>
+        <div class="blog-card-title">Medical Treatment in India from Rwanda: Complete Guide 2026</div>
+        <div class="blog-card-excerpt">Rwandan patients guide to medical treatment in India. Cancer, cardiac, transplants — 65% cheaper than Kigali. Kigali to Delhi. Free consultation from indiCare.</div>
+        <div class="blog-card-footer"><span class="blog-card-date">October 2026</span><span class="blog-read-more">Read More →</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 57 -->
+    <a class="blog-card" href="blog/blog57-medical-treatment-algeria.html">
+      <div class="blog-card-emoji">🇩🇿</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">Algeria</div>
+        <div class="blog-card-title">Medical Treatment in India from Algeria: Complete Guide 2026</div>
+        <div class="blog-card-excerpt">Algerian patients guide to medical treatment in India. Cancer, cardiac, transplants — 65% cheaper than Europe. Algiers to Delhi. Arabic &amp; French support. Free…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">October 2026</span><span class="blog-read-more">Read More →</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 58 -->
+    <a class="blog-card" href="blog/blog58-medical-treatment-somalia.html">
+      <div class="blog-card-emoji">🇸🇴</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">Somalia</div>
+        <div class="blog-card-title">Medical Treatment in India from Somalia: Complete Guide 2026</div>
+        <div class="blog-card-excerpt">Somali patients guide to medical treatment in India. Cancer, cardiac, transplants — 65% cheaper. Mogadishu to Delhi. Arabic support. Free consultation from indiCare.</div>
+        <div class="blog-card-footer"><span class="blog-card-date">October 2026</span><span class="blog-read-more">Read More →</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 59 -->
+    <a class="blog-card" href="blog/blog59-medical-treatment-libya.html">
+      <div class="blog-card-emoji">🇱🇾</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">Libya</div>
+        <div class="blog-card-title">Medical Treatment in India from Libya: Complete Guide 2026</div>
+        <div class="blog-card-excerpt">Libyan patients guide to medical treatment in India. Cancer, cardiac, transplants — 65% cheaper. Tripoli to Delhi. Arabic support. Free consultation from indiCare.</div>
+        <div class="blog-card-footer"><span class="blog-card-date">October 2026</span><span class="blog-read-more">Read More →</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 60 -->
+    <a class="blog-card" href="blog/blog60-medical-treatment-dr-congo.html">
+      <div class="blog-card-emoji">🇨🇩</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">DR Congo</div>
+        <div class="blog-card-title">Medical Treatment in India from DR Congo: Complete Guide 2026</div>
+        <div class="blog-card-excerpt">Congolese patients guide to medical treatment in India. Cancer, cardiac, transplants — 65% cheaper. Kinshasa to Delhi. French &amp; English support. Free consultation.</div>
+        <div class="blog-card-footer"><span class="blog-card-date">October 2026</span><span class="blog-read-more">Read More →</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 61 -->
+    <a class="blog-card" href="blog/blog61-medical-treatment-ivory-coast.html">
+      <div class="blog-card-emoji">🇨🇮</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">Ivory Coast</div>
+        <div class="blog-card-title">Medical Treatment in India from Ivory Coast (Côte d&#x27;Ivoire): Complete Guide 2026</div>
+        <div class="blog-card-excerpt">Ivorian patients guide to medical treatment in India. Cancer, cardiac, transplants — 65% cheaper than Europe. Abidjan to Delhi. French support. Free consultation.</div>
+        <div class="blog-card-footer"><span class="blog-card-date">October 2026</span><span class="blog-read-more">Read More →</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 62 -->
+    <a class="blog-card" href="blog/blog62-kidney-transplant-kenya.html">
+      <div class="blog-card-emoji">🫘</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">Kenya</div>
+        <div class="blog-card-title">Kidney Transplant in India for Kenyan Patients: Cost &amp; Complete Guide 2026</div>
+        <div class="blog-card-excerpt">Kenyan patients guide to kidney transplant in India. From KES 1.4M vs not available in Kenya. JCI hospitals. Free medical opinion from indiCare.</div>
+        <div class="blog-card-footer"><span class="blog-card-date">October 2026</span><span class="blog-read-more">Read More →</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 64 -->
+    <a class="blog-card" href="blog/blog64-ivf-treatment-nigeria.html">
+      <div class="blog-card-emoji">👶</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">Nigeria</div>
+        <div class="blog-card-title">IVF Treatment in India for Nigerian Patients: Cost, Success Rate &amp; Guide 2026</div>
+        <div class="blog-card-excerpt">Nigerian couples guide to IVF in India. From $2,000 per cycle vs $4,000+ in Lagos. 50-65% success rate. Free fertility review from indiCare.</div>
+        <div class="blog-card-footer"><span class="blog-card-date">October 2026</span><span class="blog-read-more">Read More →</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 1 (Arabic) -->
+    <a class="blog-card" href="blog/ar-blog01-saudi-arabia.html" dir="rtl" style="display:none;text-align:right">
+      <div class="blog-card-emoji">🇸🇦</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">السعودية</div>
+        <div class="blog-card-title">العلاج في الهند للمرضى السعوديين: الدليل الشامل 2026</div>
+        <div class="blog-card-excerpt">يختار آلاف المرضى السعوديين الهند كل عام للحصول على العلاج الطبي — وذلك بسبب التوليف الفريد بين الجودة العالمية والتكلفة المنخفضة وعدم وجود قوائم انتظار. توفر…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 2 (Arabic) -->
+    <a class="blog-card" href="blog/ar-blog02-uae.html" dir="rtl" style="display:none;text-align:right">
+      <div class="blog-card-emoji">🇦🇪</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">الإمارات</div>
+        <div class="blog-card-title">العلاج في الهند للمرضى الإماراتيين: الدليل الشامل 2026</div>
+        <div class="blog-card-excerpt">يسافر آلاف المرضى من الإمارات سنوياً إلى الهند للعلاج الطبي. مع رحلات مباشرة تستغرق 3 ساعات فقط من دبي إلى دلهي، وتوفير يصل إلى 70٪ مقارنة بالمستشفيات الخاصة في…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 3 (Arabic) -->
+    <a class="blog-card" href="blog/ar-blog03-kuwait.html" dir="rtl" style="display:none;text-align:right">
+      <div class="blog-card-emoji">🇰🇼</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">الكويت</div>
+        <div class="blog-card-title">العلاج في الهند للمرضى الكويتيين: الدليل الشامل 2026</div>
+        <div class="blog-card-excerpt">يعاني نظام الرعاية الصحية الحكومية في الكويت من ضغط كبير وقوائم انتظار طويلة للإجراءات الاختيارية. تقدم الهند للمرضى الكويتيين بديلاً متميزاً: مستشفيات معتمدة…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 4 (Arabic) -->
+    <a class="blog-card" href="blog/ar-blog04-qatar.html" dir="rtl" style="display:none;text-align:right">
+      <div class="blog-card-emoji">🇶🇦</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">قطر</div>
+        <div class="blog-card-title">العلاج في الهند للمرضى القطريين: الدليل الشامل 2026</div>
+        <div class="blog-card-excerpt">تتميز قطر بمستشفيات عالية الجودة — لكن تكاليف العلاج في القطاع الخاص مرتفعة، وقوائم الانتظار في المستشفيات الحكومية طويلة. تقدم الهند للمرضى القطريين رعاية طبية من…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 5 (Arabic) -->
+    <a class="blog-card" href="blog/ar-blog05-oman.html" dir="rtl" style="display:none;text-align:right">
+      <div class="blog-card-emoji">🇴🇲</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">عُمان</div>
+        <div class="blog-card-title">العلاج في الهند للمرضى العُمانيين: الدليل الشامل 2026</div>
+        <div class="blog-card-excerpt">تُعدّ سلطنة عُمان من دول الخليج التي يتزايد فيها عدد المسافرين إلى الهند للعلاج الطبي. مع رحلة جوية تستغرق 3 ساعات فقط من مسقط إلى دلهي، وتوفير يصل إلى 60٪ مقارنة…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 6 (Arabic) -->
+    <a class="blog-card" href="blog/ar-blog06-bahrain.html" dir="rtl" style="display:none;text-align:right">
+      <div class="blog-card-emoji">🇧🇭</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">البحرين</div>
+        <div class="blog-card-title">العلاج في الهند للمرضى البحرينيين: الدليل الشامل 2026</div>
+        <div class="blog-card-excerpt">تُعدّ مملكة البحرين من أقرب دول الخليج إلى الهند. مع رحلة جوية تستغرق 3 ساعات فقط وتوفير يصل إلى 65٪ مقارنة بالمستشفيات الخاصة في المنامة — تُقدّم الهند رعاية طبية…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 7 (Arabic) -->
+    <a class="blog-card" href="blog/ar-blog07-jordan.html" dir="rtl" style="display:none;text-align:right">
+      <div class="blog-card-emoji">🇯🇴</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">الأردن</div>
+        <div class="blog-card-title">العلاج في الهند للمرضى الأردنيين: الدليل الشامل 2026</div>
+        <div class="blog-card-excerpt">تتمتع الأردن بمستشفيات جيدة، لكن للعلاجات المعقدة — مثل زراعة الأعضاء وعلاج السرطان المتقدم وجراحة القلب المفتوح — تُقدّم الهند تقنيات متطورة بتكلفة أقل بنسبة 60٪…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 8 (Arabic) -->
+    <a class="blog-card" href="blog/ar-blog08-egypt.html" dir="rtl" style="display:none;text-align:right">
+      <div class="blog-card-emoji">🇪🇬</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">مصر</div>
+        <div class="blog-card-title">العلاج في الهند للمرضى المصريين: الدليل الشامل 2026</div>
+        <div class="blog-card-excerpt">مصر دولة بمئة مليون نسمة، وكثير من المرضى المصريين يبحثون عن علاج متقدم خارج البلاد. تُقدّم الهند للمرضى المصريين رعاية طبية من الدرجة الأولى بتكلفة أقل بنسبة 60٪…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 9 (Arabic) -->
+    <a class="blog-card" href="blog/ar-blog09-iraq.html" dir="rtl" style="display:none;text-align:right">
+      <div class="blog-card-emoji">🇮🇶</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">العراق</div>
+        <div class="blog-card-title">العلاج في الهند للمرضى العراقيين: الدليل الشامل 2026</div>
+        <div class="blog-card-excerpt">يتوجه آلاف المرضى العراقيين إلى الهند سنوياً للحصول على علاج طبي متقدم — بدءاً من جراحات القلب المعقدة وزراعة الأعضاء، وصولاً إلى علاج السرطان. تُقدّم الهند رعاية…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 10 (Arabic) -->
+    <a class="blog-card" href="blog/ar-blog10-yemen.html" dir="rtl" style="display:none;text-align:right">
+      <div class="blog-card-emoji">🇾🇪</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">اليمن</div>
+        <div class="blog-card-title">العلاج في الهند للمرضى اليمنيين: الدليل الشامل 2026</div>
+        <div class="blog-card-excerpt">يواجه المرضى اليمنيون تحديات كبيرة في الحصول على رعاية طبية متخصصة. تُقدّم الهند للمرضى اليمنيين وصولاً إلى أفضل المستشفيات المعتمدة دولياً — لجراحة القلب وعلاج…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 11 (Arabic) -->
+    <a class="blog-card" href="blog/ar-blog11-syria.html" dir="rtl" style="display:none;text-align:right">
+      <div class="blog-card-emoji">🇸🇾</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">سوريا</div>
+        <div class="blog-card-title">العلاج في الهند للمرضى السوريين: الدليل الشامل 2026</div>
+        <div class="blog-card-excerpt">تُقدّم الهند للمرضى السوريين — سواء المقيمين في سوريا أو في دول الشتات — وصولاً إلى رعاية طبية عالمية المستوى بتكاليف معقولة، مع دعم عربي كامل وطعام حلال وغرف صلاة…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 12 (Arabic) -->
+    <a class="blog-card" href="blog/ar-blog12-lebanon.html" dir="rtl" style="display:none;text-align:right">
+      <div class="blog-card-emoji">🇱🇧</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">لبنان</div>
+        <div class="blog-card-title">العلاج في الهند للمرضى اللبنانيين: الدليل الشامل 2026</div>
+        <div class="blog-card-excerpt">مع الضغط الكبير على المنظومة الصحية في لبنان، يبحث كثير من المرضى اللبنانيين عن بدائل للعلاج خارج البلاد. تُقدّم الهند رعاية طبية من الدرجة الأولى بتكلفة أقل بكثير…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 13 (Arabic) -->
+    <a class="blog-card" href="blog/ar-blog13-palestine.html" dir="rtl" style="display:none;text-align:right">
+      <div class="blog-card-emoji">🇵🇸</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">فلسطين</div>
+        <div class="blog-card-title">العلاج في الهند للمرضى الفلسطينيين: الدليل الشامل 2026</div>
+        <div class="blog-card-excerpt">تُقدّم الهند للمرضى الفلسطينيين — سواء المقيمين في فلسطين أو في دول الشتات — وصولاً إلى رعاية طبية عالمية المستوى بتكاليف في متناول اليد، مع دعم عربي كامل وطعام…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 14 (Arabic) -->
+    <a class="blog-card" href="blog/ar-blog14-libya.html" dir="rtl" style="display:none;text-align:right">
+      <div class="blog-card-emoji">🇱🇾</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">ليبيا</div>
+        <div class="blog-card-title">العلاج في الهند للمرضى الليبيين: الدليل الشامل 2026</div>
+        <div class="blog-card-excerpt">يسافر كثير من المرضى الليبيين إلى تونس أو تركيا للعلاج. تُقدّم الهند بديلاً أفضل — تقنيات أكثر تطوراً وتكاليف أقل بكثير مع دعم عربي كامل وطعام حلال.</div>
+        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 15 (Arabic) -->
+    <a class="blog-card" href="blog/ar-blog15-sudan.html" dir="rtl" style="display:none;text-align:right">
+      <div class="blog-card-emoji">🇸🇩</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">السودان</div>
+        <div class="blog-card-title">العلاج في الهند للمرضى السودانيين: الدليل الشامل 2026</div>
+        <div class="blog-card-excerpt">تُعدّ الهند من أقرب الوجهات الطبية المتقدمة للمرضى السودانيين — مع رحلة جوية لا تتجاوز 5 ساعات من الخرطوم إلى دلهي. تُقدّم الهند رعاية طبية عالمية بتكلفة أقل بنسبة…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 16 (Arabic) -->
+    <a class="blog-card" href="blog/ar-blog16-morocco.html" dir="rtl" style="display:none;text-align:right">
+      <div class="blog-card-emoji">🇲🇦</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">المغرب</div>
+        <div class="blog-card-title">العلاج في الهند للمرضى المغاربة: الدليل الشامل 2026</div>
+        <div class="blog-card-excerpt">يسافر كثير من المرضى المغاربة إلى فرنسا أو إسبانيا للعلاج الطبي. تُقدّم الهند نفس مستوى الجودة بتكلفة أقل بنسبة 65٪ — مع رحلة أقصر ودعم عربي وفرنسي كامل.</div>
+        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 17 (Arabic) -->
+    <a class="blog-card" href="blog/ar-blog17-algeria.html" dir="rtl" style="display:none;text-align:right">
+      <div class="blog-card-emoji">🇩🇿</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">الجزائر</div>
+        <div class="blog-card-title">العلاج في الهند للمرضى الجزائريين: الدليل الشامل 2026</div>
+        <div class="blog-card-excerpt">يلجأ كثير من المرضى الجزائريين إلى فرنسا لتلقي العلاج الطبي. تُقدّم الهند بديلاً متميزاً — نفس المستوى الطبي بتكلفة أقل بنسبة 65٪ ووصول أسرع دون قوائم انتظار، مع…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 18 (Arabic) -->
+    <a class="blog-card" href="blog/ar-blog18-tunisia.html" dir="rtl" style="display:none;text-align:right">
+      <div class="blog-card-emoji">🇹🇳</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">تونس</div>
+        <div class="blog-card-title">العلاج في الهند للمرضى التونسيين: الدليل الشامل 2026</div>
+        <div class="blog-card-excerpt">تُعدّ تونس وجهة طبية إقليمية — لكن للعلاجات المعقدة جداً كزراعة الأعضاء وعلاج السرطان المتقدم، تُقدّم الهند تقنيات أكثر تطوراً بتكلفة أقل بنسبة 60٪، مع دعم عربي…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 19 (Arabic) -->
+    <a class="blog-card" href="blog/ar-blog19-somalia.html" dir="rtl" style="display:none;text-align:right">
+      <div class="blog-card-emoji">🇸🇴</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">الصومال</div>
+        <div class="blog-card-title">العلاج في الهند للمرضى الصوماليين: الدليل الشامل 2026</div>
+        <div class="blog-card-excerpt">تُقدّم الهند للمرضى الصوماليين وصولاً ميسوراً إلى رعاية طبية عالمية المستوى — مع دعم عربي كامل وطعام حلال وغرف صلاة. الهند هي الأقرب والأقل تكلفة من بين الوجهات…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 20 (Arabic) -->
+    <a class="blog-card" href="blog/ar-blog20-mauritania.html" dir="rtl" style="display:none;text-align:right">
+      <div class="blog-card-emoji">🇲🇷</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">موريتانيا</div>
+        <div class="blog-card-title">العلاج في الهند للمرضى الموريتانيين: الدليل الشامل 2026</div>
+        <div class="blog-card-excerpt">تُقدّم الهند للمرضى الموريتانيين — الذين يلجأون عادةً إلى فرنسا أو المغرب للعلاج — بديلاً أفضل بتكلفة أقل وتقنيات أكثر تطوراً مع دعم عربي وفرنسي كامل.</div>
+        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 21 (Arabic) -->
+    <a class="blog-card" href="blog/ar-blog21-djibouti.html" dir="rtl" style="display:none;text-align:right">
+      <div class="blog-card-emoji">🇩🇯</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">جيبوتي</div>
+        <div class="blog-card-title">العلاج في الهند للمرضى الجيبوتيين: الدليل الشامل 2026</div>
+        <div class="blog-card-excerpt">جيبوتي دولة صغيرة بإمكانات طبية محدودة. تُقدّم الهند للمرضى الجيبوتيين وصولاً سريعاً إلى رعاية طبية عالمية بتكلفة في متناول اليد — مع دعم عربي وفرنسي كامل وطعام…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
       </div>
     </a>
 
