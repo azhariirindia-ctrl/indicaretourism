@@ -287,16 +287,12 @@ function setBlogLang(lang,btn){
   var bar=document.getElementById('blogTranslateBar');
   if(bar){bar.querySelectorAll('.blog-translate-btn').forEach(function(b){b.classList.remove('active');});}
   if(btn) btn.classList.add('active');
-  var showAr=(lang==='ar');
-  document.querySelectorAll('.blog-grid .blog-card').forEach(function(c){
-    var href=c.getAttribute('href')||'';
-    if(href.indexOf('blog/ar-blog')===0){ c.style.display=showAr?'':'none'; }
-    else if(href.indexOf('blog/')===0){ c.style.display=showAr?'none':''; }
-  });
-  var note=document.getElementById('blogLangNote');
-  if(note){ note.textContent = showAr ? 'مقالات باللغة العربية — Arabic guides for patients from Arab countries' : 'Select your language — blog posts will open in your language'; }
-  if(lang!=='en' && lang!=='ar'){ setLang(lang); }
-  else if(lang==='en' && document.documentElement.getAttribute('lang')!=='en'){ setLang('en'); }
+  if(lang==='ar'){
+    var t=document.getElementById('arabic-guides');
+    if(t){ t.scrollIntoView({behavior:'smooth',block:'start'}); }
+  } else if(lang==='en'){
+    if(document.documentElement.getAttribute('lang')!=='en'){ setLang('en'); }
+  } else { setLang(lang); }
 }
 function scrollToAppt(){
   var a=document.getElementById('appointment');
@@ -683,6 +679,7 @@ function testiMove(dir){
     <button class="blog-translate-btn" onclick="setBlogLang('ru',this)">🇷🇺 Russian</button>
   </div>
   <p class="blog-lang-note" id="blogLangNote">Select your language — blog posts will open in your language</p>
+  <p style="text-align:center;margin:10px 0 22px"><a href="#arabic-guides" id="arJumpLink" style="display:inline-block;background:#0D4C5B;color:#fff;padding:10px 22px;border-radius:6px;text-decoration:none;font-weight:600" dir="rtl">🇸🇦 المقالات العربية — اضغط هنا لقراءة الأدلة بالعربية</a></p>
 
   <div class="blog-grid">
 
@@ -1403,237 +1400,6 @@ function testiMove(dir){
       </div>
     </a>
 
-    <!-- Blog 1 (Arabic) -->
-    <a class="blog-card" href="blog/ar-blog01-saudi-arabia.html" dir="rtl" style="display:none;text-align:right">
-      <div class="blog-card-emoji">🇸🇦</div>
-      <div class="blog-card-body">
-        <div class="blog-card-badge">السعودية</div>
-        <div class="blog-card-title">العلاج في الهند للمرضى السعوديين: الدليل الشامل 2026</div>
-        <div class="blog-card-excerpt">يختار آلاف المرضى السعوديين الهند كل عام للحصول على العلاج الطبي — وذلك بسبب التوليف الفريد بين الجودة العالمية والتكلفة المنخفضة وعدم وجود قوائم انتظار. توفر…</div>
-        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
-      </div>
-    </a>
-
-    <!-- Blog 2 (Arabic) -->
-    <a class="blog-card" href="blog/ar-blog02-uae.html" dir="rtl" style="display:none;text-align:right">
-      <div class="blog-card-emoji">🇦🇪</div>
-      <div class="blog-card-body">
-        <div class="blog-card-badge">الإمارات</div>
-        <div class="blog-card-title">العلاج في الهند للمرضى الإماراتيين: الدليل الشامل 2026</div>
-        <div class="blog-card-excerpt">يسافر آلاف المرضى من الإمارات سنوياً إلى الهند للعلاج الطبي. مع رحلات مباشرة تستغرق 3 ساعات فقط من دبي إلى دلهي، وتوفير يصل إلى 70٪ مقارنة بالمستشفيات الخاصة في…</div>
-        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
-      </div>
-    </a>
-
-    <!-- Blog 3 (Arabic) -->
-    <a class="blog-card" href="blog/ar-blog03-kuwait.html" dir="rtl" style="display:none;text-align:right">
-      <div class="blog-card-emoji">🇰🇼</div>
-      <div class="blog-card-body">
-        <div class="blog-card-badge">الكويت</div>
-        <div class="blog-card-title">العلاج في الهند للمرضى الكويتيين: الدليل الشامل 2026</div>
-        <div class="blog-card-excerpt">يعاني نظام الرعاية الصحية الحكومية في الكويت من ضغط كبير وقوائم انتظار طويلة للإجراءات الاختيارية. تقدم الهند للمرضى الكويتيين بديلاً متميزاً: مستشفيات معتمدة…</div>
-        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
-      </div>
-    </a>
-
-    <!-- Blog 4 (Arabic) -->
-    <a class="blog-card" href="blog/ar-blog04-qatar.html" dir="rtl" style="display:none;text-align:right">
-      <div class="blog-card-emoji">🇶🇦</div>
-      <div class="blog-card-body">
-        <div class="blog-card-badge">قطر</div>
-        <div class="blog-card-title">العلاج في الهند للمرضى القطريين: الدليل الشامل 2026</div>
-        <div class="blog-card-excerpt">تتميز قطر بمستشفيات عالية الجودة — لكن تكاليف العلاج في القطاع الخاص مرتفعة، وقوائم الانتظار في المستشفيات الحكومية طويلة. تقدم الهند للمرضى القطريين رعاية طبية من…</div>
-        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
-      </div>
-    </a>
-
-    <!-- Blog 5 (Arabic) -->
-    <a class="blog-card" href="blog/ar-blog05-oman.html" dir="rtl" style="display:none;text-align:right">
-      <div class="blog-card-emoji">🇴🇲</div>
-      <div class="blog-card-body">
-        <div class="blog-card-badge">عُمان</div>
-        <div class="blog-card-title">العلاج في الهند للمرضى العُمانيين: الدليل الشامل 2026</div>
-        <div class="blog-card-excerpt">تُعدّ سلطنة عُمان من دول الخليج التي يتزايد فيها عدد المسافرين إلى الهند للعلاج الطبي. مع رحلة جوية تستغرق 3 ساعات فقط من مسقط إلى دلهي، وتوفير يصل إلى 60٪ مقارنة…</div>
-        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
-      </div>
-    </a>
-
-    <!-- Blog 6 (Arabic) -->
-    <a class="blog-card" href="blog/ar-blog06-bahrain.html" dir="rtl" style="display:none;text-align:right">
-      <div class="blog-card-emoji">🇧🇭</div>
-      <div class="blog-card-body">
-        <div class="blog-card-badge">البحرين</div>
-        <div class="blog-card-title">العلاج في الهند للمرضى البحرينيين: الدليل الشامل 2026</div>
-        <div class="blog-card-excerpt">تُعدّ مملكة البحرين من أقرب دول الخليج إلى الهند. مع رحلة جوية تستغرق 3 ساعات فقط وتوفير يصل إلى 65٪ مقارنة بالمستشفيات الخاصة في المنامة — تُقدّم الهند رعاية طبية…</div>
-        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
-      </div>
-    </a>
-
-    <!-- Blog 7 (Arabic) -->
-    <a class="blog-card" href="blog/ar-blog07-jordan.html" dir="rtl" style="display:none;text-align:right">
-      <div class="blog-card-emoji">🇯🇴</div>
-      <div class="blog-card-body">
-        <div class="blog-card-badge">الأردن</div>
-        <div class="blog-card-title">العلاج في الهند للمرضى الأردنيين: الدليل الشامل 2026</div>
-        <div class="blog-card-excerpt">تتمتع الأردن بمستشفيات جيدة، لكن للعلاجات المعقدة — مثل زراعة الأعضاء وعلاج السرطان المتقدم وجراحة القلب المفتوح — تُقدّم الهند تقنيات متطورة بتكلفة أقل بنسبة 60٪…</div>
-        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
-      </div>
-    </a>
-
-    <!-- Blog 8 (Arabic) -->
-    <a class="blog-card" href="blog/ar-blog08-egypt.html" dir="rtl" style="display:none;text-align:right">
-      <div class="blog-card-emoji">🇪🇬</div>
-      <div class="blog-card-body">
-        <div class="blog-card-badge">مصر</div>
-        <div class="blog-card-title">العلاج في الهند للمرضى المصريين: الدليل الشامل 2026</div>
-        <div class="blog-card-excerpt">مصر دولة بمئة مليون نسمة، وكثير من المرضى المصريين يبحثون عن علاج متقدم خارج البلاد. تُقدّم الهند للمرضى المصريين رعاية طبية من الدرجة الأولى بتكلفة أقل بنسبة 60٪…</div>
-        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
-      </div>
-    </a>
-
-    <!-- Blog 9 (Arabic) -->
-    <a class="blog-card" href="blog/ar-blog09-iraq.html" dir="rtl" style="display:none;text-align:right">
-      <div class="blog-card-emoji">🇮🇶</div>
-      <div class="blog-card-body">
-        <div class="blog-card-badge">العراق</div>
-        <div class="blog-card-title">العلاج في الهند للمرضى العراقيين: الدليل الشامل 2026</div>
-        <div class="blog-card-excerpt">يتوجه آلاف المرضى العراقيين إلى الهند سنوياً للحصول على علاج طبي متقدم — بدءاً من جراحات القلب المعقدة وزراعة الأعضاء، وصولاً إلى علاج السرطان. تُقدّم الهند رعاية…</div>
-        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
-      </div>
-    </a>
-
-    <!-- Blog 10 (Arabic) -->
-    <a class="blog-card" href="blog/ar-blog10-yemen.html" dir="rtl" style="display:none;text-align:right">
-      <div class="blog-card-emoji">🇾🇪</div>
-      <div class="blog-card-body">
-        <div class="blog-card-badge">اليمن</div>
-        <div class="blog-card-title">العلاج في الهند للمرضى اليمنيين: الدليل الشامل 2026</div>
-        <div class="blog-card-excerpt">يواجه المرضى اليمنيون تحديات كبيرة في الحصول على رعاية طبية متخصصة. تُقدّم الهند للمرضى اليمنيين وصولاً إلى أفضل المستشفيات المعتمدة دولياً — لجراحة القلب وعلاج…</div>
-        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
-      </div>
-    </a>
-
-    <!-- Blog 11 (Arabic) -->
-    <a class="blog-card" href="blog/ar-blog11-syria.html" dir="rtl" style="display:none;text-align:right">
-      <div class="blog-card-emoji">🇸🇾</div>
-      <div class="blog-card-body">
-        <div class="blog-card-badge">سوريا</div>
-        <div class="blog-card-title">العلاج في الهند للمرضى السوريين: الدليل الشامل 2026</div>
-        <div class="blog-card-excerpt">تُقدّم الهند للمرضى السوريين — سواء المقيمين في سوريا أو في دول الشتات — وصولاً إلى رعاية طبية عالمية المستوى بتكاليف معقولة، مع دعم عربي كامل وطعام حلال وغرف صلاة…</div>
-        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
-      </div>
-    </a>
-
-    <!-- Blog 12 (Arabic) -->
-    <a class="blog-card" href="blog/ar-blog12-lebanon.html" dir="rtl" style="display:none;text-align:right">
-      <div class="blog-card-emoji">🇱🇧</div>
-      <div class="blog-card-body">
-        <div class="blog-card-badge">لبنان</div>
-        <div class="blog-card-title">العلاج في الهند للمرضى اللبنانيين: الدليل الشامل 2026</div>
-        <div class="blog-card-excerpt">مع الضغط الكبير على المنظومة الصحية في لبنان، يبحث كثير من المرضى اللبنانيين عن بدائل للعلاج خارج البلاد. تُقدّم الهند رعاية طبية من الدرجة الأولى بتكلفة أقل بكثير…</div>
-        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
-      </div>
-    </a>
-
-    <!-- Blog 13 (Arabic) -->
-    <a class="blog-card" href="blog/ar-blog13-palestine.html" dir="rtl" style="display:none;text-align:right">
-      <div class="blog-card-emoji">🇵🇸</div>
-      <div class="blog-card-body">
-        <div class="blog-card-badge">فلسطين</div>
-        <div class="blog-card-title">العلاج في الهند للمرضى الفلسطينيين: الدليل الشامل 2026</div>
-        <div class="blog-card-excerpt">تُقدّم الهند للمرضى الفلسطينيين — سواء المقيمين في فلسطين أو في دول الشتات — وصولاً إلى رعاية طبية عالمية المستوى بتكاليف في متناول اليد، مع دعم عربي كامل وطعام…</div>
-        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
-      </div>
-    </a>
-
-    <!-- Blog 14 (Arabic) -->
-    <a class="blog-card" href="blog/ar-blog14-libya.html" dir="rtl" style="display:none;text-align:right">
-      <div class="blog-card-emoji">🇱🇾</div>
-      <div class="blog-card-body">
-        <div class="blog-card-badge">ليبيا</div>
-        <div class="blog-card-title">العلاج في الهند للمرضى الليبيين: الدليل الشامل 2026</div>
-        <div class="blog-card-excerpt">يسافر كثير من المرضى الليبيين إلى تونس أو تركيا للعلاج. تُقدّم الهند بديلاً أفضل — تقنيات أكثر تطوراً وتكاليف أقل بكثير مع دعم عربي كامل وطعام حلال.</div>
-        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
-      </div>
-    </a>
-
-    <!-- Blog 15 (Arabic) -->
-    <a class="blog-card" href="blog/ar-blog15-sudan.html" dir="rtl" style="display:none;text-align:right">
-      <div class="blog-card-emoji">🇸🇩</div>
-      <div class="blog-card-body">
-        <div class="blog-card-badge">السودان</div>
-        <div class="blog-card-title">العلاج في الهند للمرضى السودانيين: الدليل الشامل 2026</div>
-        <div class="blog-card-excerpt">تُعدّ الهند من أقرب الوجهات الطبية المتقدمة للمرضى السودانيين — مع رحلة جوية لا تتجاوز 5 ساعات من الخرطوم إلى دلهي. تُقدّم الهند رعاية طبية عالمية بتكلفة أقل بنسبة…</div>
-        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
-      </div>
-    </a>
-
-    <!-- Blog 16 (Arabic) -->
-    <a class="blog-card" href="blog/ar-blog16-morocco.html" dir="rtl" style="display:none;text-align:right">
-      <div class="blog-card-emoji">🇲🇦</div>
-      <div class="blog-card-body">
-        <div class="blog-card-badge">المغرب</div>
-        <div class="blog-card-title">العلاج في الهند للمرضى المغاربة: الدليل الشامل 2026</div>
-        <div class="blog-card-excerpt">يسافر كثير من المرضى المغاربة إلى فرنسا أو إسبانيا للعلاج الطبي. تُقدّم الهند نفس مستوى الجودة بتكلفة أقل بنسبة 65٪ — مع رحلة أقصر ودعم عربي وفرنسي كامل.</div>
-        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
-      </div>
-    </a>
-
-    <!-- Blog 17 (Arabic) -->
-    <a class="blog-card" href="blog/ar-blog17-algeria.html" dir="rtl" style="display:none;text-align:right">
-      <div class="blog-card-emoji">🇩🇿</div>
-      <div class="blog-card-body">
-        <div class="blog-card-badge">الجزائر</div>
-        <div class="blog-card-title">العلاج في الهند للمرضى الجزائريين: الدليل الشامل 2026</div>
-        <div class="blog-card-excerpt">يلجأ كثير من المرضى الجزائريين إلى فرنسا لتلقي العلاج الطبي. تُقدّم الهند بديلاً متميزاً — نفس المستوى الطبي بتكلفة أقل بنسبة 65٪ ووصول أسرع دون قوائم انتظار، مع…</div>
-        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
-      </div>
-    </a>
-
-    <!-- Blog 18 (Arabic) -->
-    <a class="blog-card" href="blog/ar-blog18-tunisia.html" dir="rtl" style="display:none;text-align:right">
-      <div class="blog-card-emoji">🇹🇳</div>
-      <div class="blog-card-body">
-        <div class="blog-card-badge">تونس</div>
-        <div class="blog-card-title">العلاج في الهند للمرضى التونسيين: الدليل الشامل 2026</div>
-        <div class="blog-card-excerpt">تُعدّ تونس وجهة طبية إقليمية — لكن للعلاجات المعقدة جداً كزراعة الأعضاء وعلاج السرطان المتقدم، تُقدّم الهند تقنيات أكثر تطوراً بتكلفة أقل بنسبة 60٪، مع دعم عربي…</div>
-        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
-      </div>
-    </a>
-
-    <!-- Blog 19 (Arabic) -->
-    <a class="blog-card" href="blog/ar-blog19-somalia.html" dir="rtl" style="display:none;text-align:right">
-      <div class="blog-card-emoji">🇸🇴</div>
-      <div class="blog-card-body">
-        <div class="blog-card-badge">الصومال</div>
-        <div class="blog-card-title">العلاج في الهند للمرضى الصوماليين: الدليل الشامل 2026</div>
-        <div class="blog-card-excerpt">تُقدّم الهند للمرضى الصوماليين وصولاً ميسوراً إلى رعاية طبية عالمية المستوى — مع دعم عربي كامل وطعام حلال وغرف صلاة. الهند هي الأقرب والأقل تكلفة من بين الوجهات…</div>
-        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
-      </div>
-    </a>
-
-    <!-- Blog 20 (Arabic) -->
-    <a class="blog-card" href="blog/ar-blog20-mauritania.html" dir="rtl" style="display:none;text-align:right">
-      <div class="blog-card-emoji">🇲🇷</div>
-      <div class="blog-card-body">
-        <div class="blog-card-badge">موريتانيا</div>
-        <div class="blog-card-title">العلاج في الهند للمرضى الموريتانيين: الدليل الشامل 2026</div>
-        <div class="blog-card-excerpt">تُقدّم الهند للمرضى الموريتانيين — الذين يلجأون عادةً إلى فرنسا أو المغرب للعلاج — بديلاً أفضل بتكلفة أقل وتقنيات أكثر تطوراً مع دعم عربي وفرنسي كامل.</div>
-        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
-      </div>
-    </a>
-
-    <!-- Blog 21 (Arabic) -->
-    <a class="blog-card" href="blog/ar-blog21-djibouti.html" dir="rtl" style="display:none;text-align:right">
-      <div class="blog-card-emoji">🇩🇯</div>
-      <div class="blog-card-body">
-        <div class="blog-card-badge">جيبوتي</div>
-        <div class="blog-card-title">العلاج في الهند للمرضى الجيبوتيين: الدليل الشامل 2026</div>
-        <div class="blog-card-excerpt">جيبوتي دولة صغيرة بإمكانات طبية محدودة. تُقدّم الهند للمرضى الجيبوتيين وصولاً سريعاً إلى رعاية طبية عالمية بتكلفة في متناول اليد — مع دعم عربي وفرنسي كامل وطعام…</div>
-        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
-      </div>
-    </a>
-
     <a class="blog-card" href="#appointment">
       <div class="blog-card-emoji">💬</div>
       <div class="blog-card-body">
@@ -1647,6 +1413,259 @@ function testiMove(dir){
       </div>
     </a>
 
+  </div>
+
+  <div id="arabic-block"><div id="arabic-guides" style="text-align:center;margin:3.5rem auto 1.5rem" dir="rtl">
+    <div class="section-label">أدلة طبية بالعربية</div>
+    <h2 class="section-h2" style="text-align:center;margin:0 auto 0.8rem">المقالات العربية — العلاج في الهند</h2>
+    <p class="section-sub" style="text-align:center;margin:0 auto">Arabic guides for patients from Arab countries</p>
+  </div>
+
+  <div class="blog-grid">
+    <!-- Blog 1 (Arabic) -->
+    <a class="blog-card" href="blog/ar-blog01-saudi-arabia.html" dir="rtl" style="text-align:right">
+      <div class="blog-card-emoji">🇸🇦</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">السعودية</div>
+        <div class="blog-card-title">العلاج في الهند للمرضى السعوديين: الدليل الشامل 2026</div>
+        <div class="blog-card-excerpt">يختار آلاف المرضى السعوديين الهند كل عام للحصول على العلاج الطبي — وذلك بسبب التوليف الفريد بين الجودة العالمية والتكلفة المنخفضة وعدم وجود قوائم انتظار. توفر…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 2 (Arabic) -->
+    <a class="blog-card" href="blog/ar-blog02-uae.html" dir="rtl" style="text-align:right">
+      <div class="blog-card-emoji">🇦🇪</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">الإمارات</div>
+        <div class="blog-card-title">العلاج في الهند للمرضى الإماراتيين: الدليل الشامل 2026</div>
+        <div class="blog-card-excerpt">يسافر آلاف المرضى من الإمارات سنوياً إلى الهند للعلاج الطبي. مع رحلات مباشرة تستغرق 3 ساعات فقط من دبي إلى دلهي، وتوفير يصل إلى 70٪ مقارنة بالمستشفيات الخاصة في…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 3 (Arabic) -->
+    <a class="blog-card" href="blog/ar-blog03-kuwait.html" dir="rtl" style="text-align:right">
+      <div class="blog-card-emoji">🇰🇼</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">الكويت</div>
+        <div class="blog-card-title">العلاج في الهند للمرضى الكويتيين: الدليل الشامل 2026</div>
+        <div class="blog-card-excerpt">يعاني نظام الرعاية الصحية الحكومية في الكويت من ضغط كبير وقوائم انتظار طويلة للإجراءات الاختيارية. تقدم الهند للمرضى الكويتيين بديلاً متميزاً: مستشفيات معتمدة…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 4 (Arabic) -->
+    <a class="blog-card" href="blog/ar-blog04-qatar.html" dir="rtl" style="text-align:right">
+      <div class="blog-card-emoji">🇶🇦</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">قطر</div>
+        <div class="blog-card-title">العلاج في الهند للمرضى القطريين: الدليل الشامل 2026</div>
+        <div class="blog-card-excerpt">تتميز قطر بمستشفيات عالية الجودة — لكن تكاليف العلاج في القطاع الخاص مرتفعة، وقوائم الانتظار في المستشفيات الحكومية طويلة. تقدم الهند للمرضى القطريين رعاية طبية من…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 5 (Arabic) -->
+    <a class="blog-card" href="blog/ar-blog05-oman.html" dir="rtl" style="text-align:right">
+      <div class="blog-card-emoji">🇴🇲</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">عُمان</div>
+        <div class="blog-card-title">العلاج في الهند للمرضى العُمانيين: الدليل الشامل 2026</div>
+        <div class="blog-card-excerpt">تُعدّ سلطنة عُمان من دول الخليج التي يتزايد فيها عدد المسافرين إلى الهند للعلاج الطبي. مع رحلة جوية تستغرق 3 ساعات فقط من مسقط إلى دلهي، وتوفير يصل إلى 60٪ مقارنة…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 6 (Arabic) -->
+    <a class="blog-card" href="blog/ar-blog06-bahrain.html" dir="rtl" style="text-align:right">
+      <div class="blog-card-emoji">🇧🇭</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">البحرين</div>
+        <div class="blog-card-title">العلاج في الهند للمرضى البحرينيين: الدليل الشامل 2026</div>
+        <div class="blog-card-excerpt">تُعدّ مملكة البحرين من أقرب دول الخليج إلى الهند. مع رحلة جوية تستغرق 3 ساعات فقط وتوفير يصل إلى 65٪ مقارنة بالمستشفيات الخاصة في المنامة — تُقدّم الهند رعاية طبية…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 7 (Arabic) -->
+    <a class="blog-card" href="blog/ar-blog07-jordan.html" dir="rtl" style="text-align:right">
+      <div class="blog-card-emoji">🇯🇴</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">الأردن</div>
+        <div class="blog-card-title">العلاج في الهند للمرضى الأردنيين: الدليل الشامل 2026</div>
+        <div class="blog-card-excerpt">تتمتع الأردن بمستشفيات جيدة، لكن للعلاجات المعقدة — مثل زراعة الأعضاء وعلاج السرطان المتقدم وجراحة القلب المفتوح — تُقدّم الهند تقنيات متطورة بتكلفة أقل بنسبة 60٪…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 8 (Arabic) -->
+    <a class="blog-card" href="blog/ar-blog08-egypt.html" dir="rtl" style="text-align:right">
+      <div class="blog-card-emoji">🇪🇬</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">مصر</div>
+        <div class="blog-card-title">العلاج في الهند للمرضى المصريين: الدليل الشامل 2026</div>
+        <div class="blog-card-excerpt">مصر دولة بمئة مليون نسمة، وكثير من المرضى المصريين يبحثون عن علاج متقدم خارج البلاد. تُقدّم الهند للمرضى المصريين رعاية طبية من الدرجة الأولى بتكلفة أقل بنسبة 60٪…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 9 (Arabic) -->
+    <a class="blog-card" href="blog/ar-blog09-iraq.html" dir="rtl" style="text-align:right">
+      <div class="blog-card-emoji">🇮🇶</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">العراق</div>
+        <div class="blog-card-title">العلاج في الهند للمرضى العراقيين: الدليل الشامل 2026</div>
+        <div class="blog-card-excerpt">يتوجه آلاف المرضى العراقيين إلى الهند سنوياً للحصول على علاج طبي متقدم — بدءاً من جراحات القلب المعقدة وزراعة الأعضاء، وصولاً إلى علاج السرطان. تُقدّم الهند رعاية…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 10 (Arabic) -->
+    <a class="blog-card" href="blog/ar-blog10-yemen.html" dir="rtl" style="text-align:right">
+      <div class="blog-card-emoji">🇾🇪</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">اليمن</div>
+        <div class="blog-card-title">العلاج في الهند للمرضى اليمنيين: الدليل الشامل 2026</div>
+        <div class="blog-card-excerpt">يواجه المرضى اليمنيون تحديات كبيرة في الحصول على رعاية طبية متخصصة. تُقدّم الهند للمرضى اليمنيين وصولاً إلى أفضل المستشفيات المعتمدة دولياً — لجراحة القلب وعلاج…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 11 (Arabic) -->
+    <a class="blog-card" href="blog/ar-blog11-syria.html" dir="rtl" style="text-align:right">
+      <div class="blog-card-emoji">🇸🇾</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">سوريا</div>
+        <div class="blog-card-title">العلاج في الهند للمرضى السوريين: الدليل الشامل 2026</div>
+        <div class="blog-card-excerpt">تُقدّم الهند للمرضى السوريين — سواء المقيمين في سوريا أو في دول الشتات — وصولاً إلى رعاية طبية عالمية المستوى بتكاليف معقولة، مع دعم عربي كامل وطعام حلال وغرف صلاة…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 12 (Arabic) -->
+    <a class="blog-card" href="blog/ar-blog12-lebanon.html" dir="rtl" style="text-align:right">
+      <div class="blog-card-emoji">🇱🇧</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">لبنان</div>
+        <div class="blog-card-title">العلاج في الهند للمرضى اللبنانيين: الدليل الشامل 2026</div>
+        <div class="blog-card-excerpt">مع الضغط الكبير على المنظومة الصحية في لبنان، يبحث كثير من المرضى اللبنانيين عن بدائل للعلاج خارج البلاد. تُقدّم الهند رعاية طبية من الدرجة الأولى بتكلفة أقل بكثير…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 13 (Arabic) -->
+    <a class="blog-card" href="blog/ar-blog13-palestine.html" dir="rtl" style="text-align:right">
+      <div class="blog-card-emoji">🇵🇸</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">فلسطين</div>
+        <div class="blog-card-title">العلاج في الهند للمرضى الفلسطينيين: الدليل الشامل 2026</div>
+        <div class="blog-card-excerpt">تُقدّم الهند للمرضى الفلسطينيين — سواء المقيمين في فلسطين أو في دول الشتات — وصولاً إلى رعاية طبية عالمية المستوى بتكاليف في متناول اليد، مع دعم عربي كامل وطعام…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 14 (Arabic) -->
+    <a class="blog-card" href="blog/ar-blog14-libya.html" dir="rtl" style="text-align:right">
+      <div class="blog-card-emoji">🇱🇾</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">ليبيا</div>
+        <div class="blog-card-title">العلاج في الهند للمرضى الليبيين: الدليل الشامل 2026</div>
+        <div class="blog-card-excerpt">يسافر كثير من المرضى الليبيين إلى تونس أو تركيا للعلاج. تُقدّم الهند بديلاً أفضل — تقنيات أكثر تطوراً وتكاليف أقل بكثير مع دعم عربي كامل وطعام حلال.</div>
+        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 15 (Arabic) -->
+    <a class="blog-card" href="blog/ar-blog15-sudan.html" dir="rtl" style="text-align:right">
+      <div class="blog-card-emoji">🇸🇩</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">السودان</div>
+        <div class="blog-card-title">العلاج في الهند للمرضى السودانيين: الدليل الشامل 2026</div>
+        <div class="blog-card-excerpt">تُعدّ الهند من أقرب الوجهات الطبية المتقدمة للمرضى السودانيين — مع رحلة جوية لا تتجاوز 5 ساعات من الخرطوم إلى دلهي. تُقدّم الهند رعاية طبية عالمية بتكلفة أقل بنسبة…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 16 (Arabic) -->
+    <a class="blog-card" href="blog/ar-blog16-morocco.html" dir="rtl" style="text-align:right">
+      <div class="blog-card-emoji">🇲🇦</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">المغرب</div>
+        <div class="blog-card-title">العلاج في الهند للمرضى المغاربة: الدليل الشامل 2026</div>
+        <div class="blog-card-excerpt">يسافر كثير من المرضى المغاربة إلى فرنسا أو إسبانيا للعلاج الطبي. تُقدّم الهند نفس مستوى الجودة بتكلفة أقل بنسبة 65٪ — مع رحلة أقصر ودعم عربي وفرنسي كامل.</div>
+        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 17 (Arabic) -->
+    <a class="blog-card" href="blog/ar-blog17-algeria.html" dir="rtl" style="text-align:right">
+      <div class="blog-card-emoji">🇩🇿</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">الجزائر</div>
+        <div class="blog-card-title">العلاج في الهند للمرضى الجزائريين: الدليل الشامل 2026</div>
+        <div class="blog-card-excerpt">يلجأ كثير من المرضى الجزائريين إلى فرنسا لتلقي العلاج الطبي. تُقدّم الهند بديلاً متميزاً — نفس المستوى الطبي بتكلفة أقل بنسبة 65٪ ووصول أسرع دون قوائم انتظار، مع…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 18 (Arabic) -->
+    <a class="blog-card" href="blog/ar-blog18-tunisia.html" dir="rtl" style="text-align:right">
+      <div class="blog-card-emoji">🇹🇳</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">تونس</div>
+        <div class="blog-card-title">العلاج في الهند للمرضى التونسيين: الدليل الشامل 2026</div>
+        <div class="blog-card-excerpt">تُعدّ تونس وجهة طبية إقليمية — لكن للعلاجات المعقدة جداً كزراعة الأعضاء وعلاج السرطان المتقدم، تُقدّم الهند تقنيات أكثر تطوراً بتكلفة أقل بنسبة 60٪، مع دعم عربي…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 19 (Arabic) -->
+    <a class="blog-card" href="blog/ar-blog19-somalia.html" dir="rtl" style="text-align:right">
+      <div class="blog-card-emoji">🇸🇴</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">الصومال</div>
+        <div class="blog-card-title">العلاج في الهند للمرضى الصوماليين: الدليل الشامل 2026</div>
+        <div class="blog-card-excerpt">تُقدّم الهند للمرضى الصوماليين وصولاً ميسوراً إلى رعاية طبية عالمية المستوى — مع دعم عربي كامل وطعام حلال وغرف صلاة. الهند هي الأقرب والأقل تكلفة من بين الوجهات…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 20 (Arabic) -->
+    <a class="blog-card" href="blog/ar-blog20-mauritania.html" dir="rtl" style="text-align:right">
+      <div class="blog-card-emoji">🇲🇷</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">موريتانيا</div>
+        <div class="blog-card-title">العلاج في الهند للمرضى الموريتانيين: الدليل الشامل 2026</div>
+        <div class="blog-card-excerpt">تُقدّم الهند للمرضى الموريتانيين — الذين يلجأون عادةً إلى فرنسا أو المغرب للعلاج — بديلاً أفضل بتكلفة أقل وتقنيات أكثر تطوراً مع دعم عربي وفرنسي كامل.</div>
+        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 21 (Arabic) -->
+    <a class="blog-card" href="blog/ar-blog21-djibouti.html" dir="rtl" style="text-align:right">
+      <div class="blog-card-emoji">🇩🇯</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">جيبوتي</div>
+        <div class="blog-card-title">العلاج في الهند للمرضى الجيبوتيين: الدليل الشامل 2026</div>
+        <div class="blog-card-excerpt">جيبوتي دولة صغيرة بإمكانات طبية محدودة. تُقدّم الهند للمرضى الجيبوتيين وصولاً سريعاً إلى رعاية طبية عالمية بتكلفة في متناول اليد — مع دعم عربي وفرنسي كامل وطعام…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
+      </div>
+    </a>
+
+    <!-- Blog 22 (Arabic) -->
+    <a class="blog-card" href="blog/ar-blog22-chad.html" dir="rtl" style="text-align:right">
+      <div class="blog-card-emoji">🇹🇩</div>
+      <div class="blog-card-body">
+        <div class="blog-card-badge">تشاد</div>
+        <div class="blog-card-title">العلاج في الهند للمرضى التشاديين: الدليل الشامل 2026</div>
+        <div class="blog-card-excerpt">يبحث كثير من المرضى في تشاد عن علاج متخصص خارج البلاد حين لا تتوفر الخدمة التي تحتاجها حالتهم. وتُعد الهند وجهة معروفة للعلاج بفضل مستشفياتها الكبيرة المعتمدة…</div>
+        <div class="blog-card-footer"><span class="blog-card-date">أكتوبر 2026</span><span class="blog-read-more">اقرأ المزيد ←</span></div>
+      </div>
+    </a>
+
+
+  </div>
   </div>
 </section>
 
@@ -1836,6 +1855,24 @@ if(form){
     }
   });
 }
+</script>
+<script>
+(function(){
+  try{
+    var langs=(navigator.languages&&navigator.languages.length)?navigator.languages:[navigator.language||''];
+    var wantAr=langs.some(function(l){return /^ar/i.test(l);})||/[?&]lang=ar/i.test(location.search)||location.hash==='#arabic';
+    var blk=document.getElementById('arabic-block');
+    var first=document.querySelector('#blog .blog-grid');
+    if(wantAr&&blk&&first){
+      first.parentNode.insertBefore(blk,first);
+      var btns=document.querySelectorAll('#blogTranslateBar .blog-translate-btn');
+      btns.forEach(function(b){b.classList.remove('active');});
+      if(btns[1]){btns[1].classList.add('active');}
+      var n=document.getElementById('blogLangNote'); if(n){n.textContent='مقالات باللغة العربية — Arabic guides for patients from Arab countries';}
+      if(location.hash==='#arabic'){var t=document.getElementById('arabic-guides'); if(t){t.scrollIntoView();}}
+    }
+  }catch(e){}
+})();
 </script>
 </body>
 </html>
